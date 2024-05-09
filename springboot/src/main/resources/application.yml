@@ -1,0 +1,37 @@
+server:
+  port: 9090
+
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root   #数据库用户名
+    password: 209354 #数据库密码
+    url: jdbc:mysql://localhost:3306/takeaway?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# 配置mybatis实体和xml映射
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# 分页
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+ip: localhost
+
+alipay:
+  appId:9021000136625091
+  appPrivateKey:MIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQCEpb+ETHI7jsWks0HgO7pqG94iTDHZhEX+XQtiaAWKU+7qmj0XnFg4TSDbotJSr4pnk9r5ADQnnawtQLZPzEKhv3VgJ0LORHr1ctv12XG+xNK0UB39sF3b3t+2edG9coL70i7A8Kwj/A0au5a77W/f8zNU0Ow15AUpcuF8xzasmldZkMkpfC//EjXw75t4OhHJmpbq8vVjMKd4n9+bkJ9OSW90b/vC0MD8oR/d28jN7+c/KqjKCBRGN2GZymRdbmB8Vgs1ipPzQ2+cYL6WCTfUWIgnS4rRdgebePyuSgq0XqHJk8EAOixFLkI9cgyqlPcq/E3SrvGx/plKvR105g/BAgMBAAECggEBAIO9GbgLNGhyI1ivr31D1KANjVAC3H9rHxjAz82sAdSgB2h4RrRsUjGYaEm6K6hzLsIv1gn2adXuglFvM6GM+6Aoxin41CCHYpbivBIvIwiT8a+i4iZSQuVbNFPGKMg+MlhnJof4fv4+FcW3CL0b00BYCWLzG6VqELZZohiKwYIpT14/zsOwZUM9honH+ofz2WtvK8UKuSk0iqYDHCKM0BSppTHUbtIiIMkiWfI8U+Fk+YevPVByUSmrp6c7cpvPfJCpfIwN1n5jmemlnG47W6H7lrLyY/3/c4aNqMySFvfQSY41dZG0jPHUVfmL5J7ju7qnyg3FGNYuwlDRV4HJwAECgYEA59YiyAt5CzIMyDPictXNz6jS8LLEzdmhJKRC8VrJy9v6wVRZME+e5ndQOnSFOXv0P9KfYcygUJb1gc33RF1BMXOzbz3TXWVWNjx9Su33BtWsiiOb/op2HsfAZp5dg0Z2ZZ+R4+AkI+CJDISKyfXZCzw9E/eQ7bREL0ntVwS9U1ECgYEAknkMqcGiUmkz9WMhR4iQoGZ5BWqP1EPn6a3LreqG8QSU7zaEaqM07Ppak0UAsvKb5OuAr3SIm40JKzz2AzaKOXrESbIzLPDgSnCBAUwZc9ZOIRKAYs4IxtI0v/8UKT8vNwJ9sg2Ld0BERER5pLV01OgQAoS3qkVwT9NssLcDeXECgYEA3erXPl/lDPdqztUDhWLtcEKtMGQfCOCyZI2r2rZKBg7bF+ZyvVDpzLgXHu1cfWsOoW0uzYH/T0VBWnBaqaEOf5S+BNTMl1EiViZO1MO2u18bmtt9PgkyCkKxBEnBP6DaQmqdTuDGF2WeKlJRPANOMHgICy3mF/N/dTixrKNHyxECgYEAjAwdpXo0/+MDAQ9FVKYo0pToBdu7pdM/vNiltKZXW79rv8U6mtNt2WAOll0VrAP4NstOAXTE4SXarHLfLndJdmgBog02jTPK4KHtVxYyB+XSUiDkjJQ/JAr80M7NshptxIUnNcVpoh3aqANo46l0CdXQ6PeIvM8j8c9PTy/NrKECgYEAyl9ho7nnS4156b9xLaQeVtdKalk4BPrIgA4zCi0i2cLxrEXtMHdiM1Su2AgUe+bAI5THXdKiMNRH08H1hho1/D73HWHNy3Z06NCFCRwzPsrp9IScNo4wUWEvUrvdeFAkc94rjZEXJhAltkSiPbUFzHnnYAmjZt18L0MJpfZzml8=
+  alipayPublicKey:MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjDb7f49juNnbqriUQ7bp3RegdGKVpp4Rtz8JeuMuV6rHJzQlYYtbs6T0G1g1VUtSLhJv2XUd58NgBzdPuyfFSXo5XgZQWQ0LjG9JgZ0flU53KXstCBs7J5if+5S4/itsZ36YjAZpnsbvoyezCOubh7tqPCKk6mnd3jhpZs7aju8I8jEy7EXHZ5DQsAujzbu3MSeggdWF3G8TCnRbegPAJQFqG+qMAY7XjsGYNo+UqhZ9ivnMRBy9Eanr5QcHz2H1mVJn7ntswy4bguVljXSUMzaXIBq176S8LC6yY5JYR0DfOVR9TPBqhczz/RGXpvOQR+HEajKlons4SmHlX60vQwIDAQAB
+  notifyUrl:https://openapi-sandbox.dl.alipaydev.com/gateway.do
